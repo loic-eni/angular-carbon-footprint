@@ -19,5 +19,22 @@ export class CarbonFootprintComponent {
     { distanceKm: 250, consommationPour100Km: 7 },
     { distanceKm: 350, consommationPour100Km: 8 },
     { distanceKm: 450, consommationPour100Km: 9 }
-]
+];
+  genererVoyage(){
+    const distanceKm = Math.floor(Math.random() * 750)
+    const consommationPour100Km = Math.floor(Math.random() * 20)
+    this.voyages.push({distanceKm, consommationPour100Km})
+
+    this.updateConsomationsEtDistances();
+  }
+
+  updateConsomationsEtDistances(){
+    this.distanceKm = this.voyages.reduce((acc, v)=> acc + v.distanceKm, 0);
+    this.consommationPour100Km = this.voyages.reduce((acc, v)=> acc + v.consommationPour100Km * v.distanceKm, 0)/(this.distanceKm);
+  }
+
+
+  ngOnInit(){
+    this.updateConsomationsEtDistances();
+  }
 }
