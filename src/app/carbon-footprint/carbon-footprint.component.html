@@ -13,3 +13,19 @@
 </p>
 <p>consommation totale: {{consommationPour100Km * distanceKm/100}}L</p>
 <button (click)="add100Km()">Ajouter 100km</button>
+
+<h2>Liste des voyages</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Distance</th>
+            <th>Consommation pour 100 kms</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let voyage of voyages">
+            <td>{{ voyage.distanceKm }} km</td>
+            <td>{{ voyage.consommationPour100Km }} L</td>
+        </tr>
+    </tbody>
+</table>
