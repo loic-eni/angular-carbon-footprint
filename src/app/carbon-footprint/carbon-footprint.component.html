@@ -1,2 +1,15 @@
 <app-carbon-footprint-form/>
 <app-carbon-footprint-result/>
+
+<p [className]="distanceKm > 500 ? 'haute-distance' : distanceKm < 100 ? 'basse-distance' : undefined">distance parcourue: {{distanceKm}}km</p>
+<p [style]="{color: consommationPour100Km > 7 ? 'red' : consommationPour100Km < 4 ? 'green' : undefined}">
+    consommation pour 100km: {{consommationPour100Km}}L 
+    @if(consommationPour100Km > 7){
+        <span class="warning-span">Attention, votre consommation est élevée</span>
+    }
+    @if(consommationPour100Km < 4) {
+        <span class="success-span">Félicitations, votre consommation est faible</span>
+    }
+</p>
+<p>consommation totale: {{consommationPour100Km * distanceKm/100}}L</p>
+<button (click)="add100Km()">Ajouter 100km</button>
