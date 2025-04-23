@@ -12,6 +12,8 @@
         >
       </li>
     </ul>
-    <p>Bienvenu {{ nomUtilisateur() }}</p>
+    @if(username()){
+    <p>Bienvenu {{ username() }}</p>
+    }
   </nav>
 </header>

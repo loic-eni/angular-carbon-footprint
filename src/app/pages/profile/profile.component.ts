@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, WritableSignal } from '@angular/core';
+import { UserService } from '../../core/services/user/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,5 +8,9 @@ import { Component, input } from '@angular/core';
   styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
-  userName = input('anonyme');
+  username: WritableSignal<string>;
+
+  constructor(userService: UserService) {
+    this.username = userService.getUsername();
+  }
 }
