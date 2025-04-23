@@ -1,17 +1,13 @@
 import { Component, Signal } from '@angular/core';
-import { CarbonFootprintFormComponent } from '../carbon-footprint-form/carbon-footprint-form.component';
-import { CarbonFootprintResultComponent } from '../carbon-footprint-result/carbon-footprint-result.component';
 import { CommonModule } from '@angular/common';
 import { CarbonFootprintComputeService } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
 import { Voyage } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-carbon-footprint',
-  imports: [
-    CarbonFootprintFormComponent,
-    CarbonFootprintResultComponent,
-    CommonModule,
-  ],
+  imports: [CommonModule, MatButtonModule, MatTableModule],
   providers: [CarbonFootprintComputeService],
   templateUrl: './carbon-footprint.component.html',
   styleUrl: './carbon-footprint.component.scss',
@@ -22,6 +18,7 @@ export class CarbonFootprintComponent {
   consommationPour100Km: Signal<number>;
   emissionsCO2: Signal<number>;
   generateVoyage: () => void;
+  displayedColumns = ['distance', 'consommation', 'emissions'];
 
   constructor(carbonFootprintComputeService: CarbonFootprintComputeService) {
     this.voyages = carbonFootprintComputeService.getVoyages();
