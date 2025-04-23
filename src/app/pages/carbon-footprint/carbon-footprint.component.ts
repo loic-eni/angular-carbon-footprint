@@ -1,9 +1,9 @@
 import { Component, Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CarbonFootprintComputeService } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
-import { Voyage } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { Voyage } from '../../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
+import { CarbonFootprintComputeService } from '../../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
 
 @Component({
   selector: 'app-carbon-footprint',

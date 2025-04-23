@@ -12,9 +12,11 @@ export class CarbonFootprintComputeService {
     { distanceKm: 350, consommationPour100Km: 8, quantiteCO2: 64.4 },
     { distanceKm: 450, consommationPour100Km: 9, quantiteCO2: 93.15 },
   ]);
+
   private distanceKm = computed(() =>
     this.voyages().reduce((acc, v) => acc + v.distanceKm, 0)
   );
+
   private consommationPour100Km = computed(
     () =>
       this.voyages().reduce(
@@ -22,6 +24,7 @@ export class CarbonFootprintComputeService {
         0
       ) / this.distanceKm()
   );
+
   private quantiteCO2Totale = computed(() =>
     this.computeCO2Emissions(this.distanceKm(), this.consommationPour100Km())
   );
