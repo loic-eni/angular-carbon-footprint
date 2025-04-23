@@ -11,6 +11,15 @@
           >Voir mon profile</a
         >
       </li>
+      <li>
+        <a
+          mat-button
+          routerLink="/carbon-footprint"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Caculer mes emissions carbone</a
+        >
+      </li>
     </ul>
     @if(username()){
     <p>Bienvenu {{ username() }}</p>
