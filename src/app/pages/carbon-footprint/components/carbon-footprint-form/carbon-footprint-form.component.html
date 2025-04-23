@@ -1,1 +1,24 @@
-<p>carbon-footprint-form works!</p>
+<form [formGroup]="form" (ngSubmit)="submitForm()" class="centered">
+  <h3>Ajouter un voyage</h3>
+  <mat-form-field>
+    <mat-label>Distance en km</mat-label>
+    <input matInput type="number" formControlName="distanceKm" />
+    @if(submited && form.get('distanceKm')?.errors){
+    <div class="field-error">La distance doit etre superieure a 0 km</div>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Consommation pour 100km</mat-label>
+    <input matInput type="number" formControlName="consommationPour100Km" />
+    @if(submited && form.get('consommationPour100Km')?.errors){
+    <div class="field-error">
+      La consommation pour 100km doit etre superieure a 0
+    </div>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput type="date" formControlName="date" />
+  </mat-form-field>
+  <button mat-stroked-button type="submit">Ajouter le voyage</button>
+</form>
