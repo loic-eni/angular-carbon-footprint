@@ -1,4 +1,17 @@
 <header>
   <h1>Calcul empreinte carbone</h1>
-  <p>Bienvenu {{ nomUtilisateur() }}</p>
+  <nav>
+    <ul>
+      <li>
+        <a
+          mat-button
+          routerLink="/profile"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          >Voir mon profile</a
+        >
+      </li>
+    </ul>
+    <p>Bienvenu {{ nomUtilisateur() }}</p>
+  </nav>
 </header>

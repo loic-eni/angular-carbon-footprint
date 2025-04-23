@@ -9,3 +9,14 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+header ul,
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header li {
+  list-style: none;
+}
