@@ -46,7 +46,11 @@
   <table mat-table [dataSource]="voyages()">
     <ng-container matColumnDef="vehicule">
       <th mat-header-cell *matHeaderCellDef>Vehicule</th>
-      <td mat-cell *matCellDef="let voyage">{{ voyage.vehicule }}</td>
+      <td mat-cell *matCellDef="let voyage">
+        <mat-chip>
+          {{ voyage.vehicule }}
+        </mat-chip>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="distance">

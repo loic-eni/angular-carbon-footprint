@@ -5,6 +5,7 @@ import { MatTableModule } from '@angular/material/table';
 import { Voyage } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
 import { CarbonFootprintComputeService } from '../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
 import { CarbonFootprintFormComponent } from './components/carbon-footprint-form/carbon-footprint-form.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @Component({
   selector: 'app-carbon-footprint',
@@ -13,6 +14,7 @@ import { CarbonFootprintFormComponent } from './components/carbon-footprint-form
     MatButtonModule,
     MatTableModule,
     CarbonFootprintFormComponent,
+    MatChipsModule,
   ],
   providers: [CarbonFootprintComputeService],
   templateUrl: './carbon-footprint.component.html',
