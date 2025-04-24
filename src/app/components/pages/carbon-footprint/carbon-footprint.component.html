@@ -26,16 +26,25 @@
             ? 'red'
             : consommationPour100Km() < 4
             ? 'green'
-            : undefined
+            : undefined,
+        display: 'flex',
+        alignItems: 'center',
+        gap: '16px'
       }"
     >
-      consommation pour 100km: {{ consommationPour100Km() | number : "1.0-2" }}L
+      <span>
+        consommation pour 100km:
+        {{ consommationPour100Km() | number : "1.0-2" }}L
+      </span>
+
       @if(consommationPour100Km() > 7){
-      <span class="warning-span">Attention, votre consommation est élevée</span>
+      <mat-chip class="warning">
+        Attention, votre consommation est élevée
+      </mat-chip>
       } @if(consommationPour100Km() < 4) {
-      <span class="success-span"
-        >Félicitations, votre consommation est faible</span
-      >
+      <mat-chip class="success">
+        Félicitations, votre consommation est faible
+      </mat-chip>
       }
     </p>
     <p>

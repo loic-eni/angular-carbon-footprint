@@ -62,3 +62,23 @@ form.centered {
   font-size: small;
   color: red;
 }
+
+mat-chip.warning {
+  background-color: rgba(226, 21, 21, 0.829) !important;
+  .mdc-evolution-chip__text-label {
+    color: white !important;
+  }
+  ::before {
+    border: none !important;
+  }
+}
+
+mat-chip.success {
+  background-color: rgb(68, 219, 80) !important;
+  .mdc-evolution-chip__text-label {
+    color: white !important;
+  }
+  ::before {
+    border: none !important;
+  }
+}
