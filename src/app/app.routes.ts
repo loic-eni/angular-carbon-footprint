@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { CarbonFootprintComponent } from './pages/carbon-footprint/carbon-footprint.component';
-import { loginGuard } from './login.guard';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ProfileComponent } from './components/pages/profile/profile.component';
+import { CarbonFootprintComponent } from './components/pages/carbon-footprint/carbon-footprint.component';
+import { loginGuard } from './core/guards/login.guard';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },

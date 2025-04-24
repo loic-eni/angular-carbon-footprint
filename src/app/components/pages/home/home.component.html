@@ -2,6 +2,7 @@
   <h2>Bienvenu</h2>
   <form [formGroup]="form" (ngSubmit)="submitForm()" class="outlined-container">
     <h3>Connection</h3>
+
     <mat-form-field>
       <mat-label>Nom utilisateur</mat-label>
       <input matInput formControlName="username" />
@@ -9,6 +10,7 @@
       <div class="field-error">Le nom doit faire au moin 3 caractères</div>
       }
     </mat-form-field>
+
     <mat-form-field>
       <mat-label>Mot de passe</mat-label>
       <input matInput type="password" formControlName="password" />
@@ -18,6 +20,15 @@
       </div>
       }
     </mat-form-field>
-    <button mat-stroked-button type="submit">Me connecter</button>
+
+    <button
+      mat-stroked-button
+      type="submit"
+      [disabled]="loading"
+      class="loading-button"
+    >
+      @if(loading){<mat-spinner diameter="24" />}
+      <span> Me connecter </span>
+    </button>
   </form>
 </div>

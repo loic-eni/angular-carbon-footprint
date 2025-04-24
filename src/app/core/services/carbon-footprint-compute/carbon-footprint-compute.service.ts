@@ -1,10 +1,21 @@
-import { computed, Injectable, signal, WritableSignal } from '@angular/core';
+import {
+  computed,
+  inject,
+  Injectable,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import { Voyage } from './carbon-footprint-compute.types';
+import { AsyncMockService } from '../async-mock/async-mock.service';
+
+const POST_DELAY_MS = 1000;
+const FETCH_DELAY_MS = 5000;
 
 @Injectable({
   providedIn: 'root',
 })
 export class CarbonFootprintComputeService {
+  asyncMock = inject(AsyncMockService).asyncMock;
   private voyages: WritableSignal<Voyage[]> = signal([
     {
       distanceKm: 50,
@@ -78,18 +89,24 @@ export class CarbonFootprintComputeService {
     const quantiteCO2 = this.computeVoyageCO2Emissions(voyage);
 
     const _voyage: Voyage = { ...voyage, quantiteCO2 };
-    this.voyages.update((voyages) => [...voyages, _voyage]);
+
+    return this.asyncMock(() => {
+      this.voyages.update((voyages) => [...voyages, _voyage]);
+    }, POST_DELAY_MS);
   }
 
   getVoyages() {
-    return computed(() => this.voyages());
+    return this.asyncMock(() => this.voyages, FETCH_DELAY_MS);
   }
 
   getResumeVoyages() {
-    return {
-      distanceKm: this.distanceKm,
-      consommationPour100Km: this.consommationPour100Km,
-      quantiteCO2Totale: this.quantiteCO2Totale,
-    };
+    return this.asyncMock(
+      () => ({
+        distanceKm: this.distanceKm,
+        consommationPour100Km: this.consommationPour100Km,
+        quantiteCO2Totale: this.quantiteCO2Totale,
+      }),
+      FETCH_DELAY_MS
+    );
   }
 }
