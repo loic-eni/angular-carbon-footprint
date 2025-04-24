@@ -5,11 +5,11 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { CarbonFootprintComputeService } from '../../../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
+import { CarbonFootprintComputeService } from '../../../../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { Voyage } from '../../../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
+import { Voyage } from '../../../../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
 import { CommonModule } from '@angular/common';
 
 @Component({

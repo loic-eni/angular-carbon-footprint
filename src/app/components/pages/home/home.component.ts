@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { UserService } from '../../core/services/user/user.service';
+import { UserService } from '../../../core/services/user/user.service';
 import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import {
