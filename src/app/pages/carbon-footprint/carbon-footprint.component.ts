@@ -23,8 +23,7 @@ export class CarbonFootprintComponent {
   distanceKm: Signal<number>;
   consommationPour100Km: Signal<number>;
   emissionsCO2: Signal<number>;
-  generateVoyage: () => void;
-  displayedColumns = ['distance', 'consommation', 'emissions'];
+  displayedColumns = ['vehicule', 'distance', 'consommation', 'emissions'];
 
   constructor(carbonFootprintComputeService: CarbonFootprintComputeService) {
     this.voyages = carbonFootprintComputeService.getVoyages();
@@ -34,14 +33,5 @@ export class CarbonFootprintComponent {
     this.distanceKm = distanceKm;
     this.consommationPour100Km = consommationPour100Km;
     this.emissionsCO2 = quantiteCO2Totale;
-
-    this.generateVoyage = () => {
-      const distanceKm = Math.floor(Math.random() * 1000);
-      const consommationPour100Km = Math.floor(Math.random() * 20);
-      carbonFootprintComputeService.addVoyage({
-        distanceKm,
-        consommationPour100Km,
-      });
-    };
   }
 }

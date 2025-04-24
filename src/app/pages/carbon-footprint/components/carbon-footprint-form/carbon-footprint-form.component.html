@@ -1,12 +1,25 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()" class="centered">
   <h3>Ajouter un voyage</h3>
   <mat-form-field>
+    <mat-label>Vehicule</mat-label>
+    <mat-select matInput type="select" formControlName="vehicule">
+      @for (vehicule of vehicules; track vehicule) {
+      <mat-option [value]="vehicule">{{ vehicule }}</mat-option>
+      }
+    </mat-select>
+    @if(submited && form.get('distanceKm')?.errors){
+    <div class="field-error">La distance doit etre superieure a 0 km</div>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
     <mat-label>Distance en km</mat-label>
     <input matInput type="number" formControlName="distanceKm" />
     @if(submited && form.get('distanceKm')?.errors){
     <div class="field-error">La distance doit etre superieure a 0 km</div>
     }
   </mat-form-field>
+  @if(form.get('vehicule')?.value === 'voiture'){
   <mat-form-field>
     <mat-label>Consommation pour 100km</mat-label>
     <input matInput type="number" formControlName="consommationPour100Km" />
@@ -16,6 +29,8 @@
     </div>
     }
   </mat-form-field>
+  }
+
   <mat-form-field>
     <mat-label>Date</mat-label>
     <input matInput type="date" formControlName="date" />
