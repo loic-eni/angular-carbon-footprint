@@ -1,0 +1,26 @@
+.skeleton {
+  background-color: rgb(240, 233, 233);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.skeleton .ripple {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  position: absolute;
+  scale: 0;
+  background: radial-gradient(#0000, 80%, #fff);
+  opacity: 1;
+  animation: ripple 2000ms ease-out infinite;
+}
+
+@keyframes ripple {
+  to {
+    scale: 2;
+    opacity: 0;
+  }
+}

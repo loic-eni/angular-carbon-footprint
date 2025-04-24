@@ -6,7 +6,7 @@ import { Voyage } from '../../../core/services/carbon-footprint-compute/carbon-f
 import { CarbonFootprintComputeService } from '../../../core/services/carbon-footprint-compute/carbon-footprint-compute.service';
 import { CarbonFootprintFormComponent } from './components/carbon-footprint-form/carbon-footprint-form.component';
 import { MatChipsModule } from '@angular/material/chips';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonComponent } from '../../common/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-carbon-footprint',
@@ -16,7 +16,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatTableModule,
     CarbonFootprintFormComponent,
     MatChipsModule,
-    NgxSkeletonLoaderModule,
+    SkeletonComponent,
   ],
   providers: [CarbonFootprintComputeService],
   templateUrl: './carbon-footprint.component.html',

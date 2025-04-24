@@ -3,15 +3,10 @@
 <div class="container gap-16-container">
   <div class="outlined-container">
     @if(resumeLoading){
-    <ngx-skeleton-loader
-      [theme]="{
-        width: '300px',
-        display: 'flex',
-        flexDirection: 'column',
-        margin: '16px 0'
-      }"
-      count="4"
-    />
+    <app-skeleton [theme]="{ width: 250, margin: '12px 0' }" />
+    <app-skeleton [theme]="{ width: 330, margin: '12px 0' }" />
+    <app-skeleton [theme]="{ width: 250, margin: '12px 0' }" />
+    <app-skeleton [theme]="{ width: 300, margin: '12px 0' }" />
     }@else{
     <p
       [className]="
@@ -59,9 +54,8 @@
     <ng-container matColumnDef="vehicule">
       <th mat-header-cell *matHeaderCellDef>Vehicule</th>
       <td mat-cell *matCellDef="let voyage">
-        @if(voyagesLoading){<ngx-skeleton-loader
-          [theme]="{ width: '68px', height: '32px' }"
-          count="1"
+        @if(voyagesLoading){<app-skeleton
+          [theme]="{ width: 68, height: 32 }"
         />} @else{
         <mat-chip>
           {{ voyage.vehicule }}
@@ -74,7 +68,7 @@
       <th mat-header-cell *matHeaderCellDef>Distance parcourue</th>
       <td mat-cell *matCellDef="let voyage">
         @if(voyagesLoading){
-        <ngx-skeleton-loader count="1" />
+        <app-skeleton />
         }@else{
         {{ voyage.distanceKm }} km }
       </td>
@@ -84,7 +78,7 @@
       <th mat-header-cell *matHeaderCellDef>Consommation pour 100 km</th>
       <td mat-cell *matCellDef="let voyage">
         @if(voyagesLoading){
-        <ngx-skeleton-loader count="1" />
+        <app-skeleton />
         }@else{
         {{ voyage.consommationPour100Km }} L }
       </td>
@@ -94,7 +88,7 @@
       <th mat-header-cell *matHeaderCellDef>Emissions CO2</th>
       <td mat-cell *matCellDef="let voyage">
         @if(voyagesLoading){
-        <ngx-skeleton-loader count="1" />
+        <app-skeleton />
         }@else{
         {{ voyage.quantiteCO2 | number : "1.1-2" }} kg }
       </td>
