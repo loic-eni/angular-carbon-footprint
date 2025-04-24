@@ -8,7 +8,8 @@ import {
 import { Voyage } from './carbon-footprint-compute.types';
 import { AsyncMockService } from '../async-mock/async-mock.service';
 
-const ACTION_DELAY_MS = 1000;
+const POST_DELAY_MS = 1000;
+const FETCH_DELAY_MS = 5000;
 
 @Injectable({
   providedIn: 'root',
@@ -91,11 +92,11 @@ export class CarbonFootprintComputeService {
 
     return this.asyncMock(() => {
       this.voyages.update((voyages) => [...voyages, _voyage]);
-    }, ACTION_DELAY_MS);
+    }, POST_DELAY_MS);
   }
 
   getVoyages() {
-    return this.asyncMock(() => this.voyages, ACTION_DELAY_MS);
+    return this.asyncMock(() => this.voyages, FETCH_DELAY_MS);
   }
 
   getResumeVoyages() {
@@ -105,7 +106,7 @@ export class CarbonFootprintComputeService {
         consommationPour100Km: this.consommationPour100Km,
         quantiteCO2Totale: this.quantiteCO2Totale,
       }),
-      ACTION_DELAY_MS
+      FETCH_DELAY_MS
     );
   }
 }
