@@ -9,10 +9,16 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-home',
-  imports: [MatButtonModule, MatInputModule, ReactiveFormsModule],
+  imports: [
+    MatButtonModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -29,15 +35,18 @@ export class HomeComponent {
     ]),
   });
   submited = false;
+  loading = false;
 
   constructor(userService: UserService, private router: Router) {
     this.userService = userService;
   }
 
-  submitForm() {
+  async submitForm() {
     this.submited = true;
     if (this.form.invalid) return;
-    this.userService.login(this.form.value.username);
+    this.loading = true;
+    await this.userService.login(this.form.value.username);
+    this.loading = false;
     this.router.navigate(['/carbon-footprint']);
   }
 }
