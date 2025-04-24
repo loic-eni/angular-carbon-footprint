@@ -39,12 +39,12 @@ export class CarbonFootprintFormComponent {
   });
   submited = false;
 
-  submitForm() {
+  async submitForm() {
     this.submited = true;
     if (this.form.invalid) return;
     this.submited = false;
 
-    this.computeService.addVoyage({
+    await this.computeService.addVoyage({
       distanceKm: this.form.value.distanceKm || 0,
       consommationPour100Km: this.form.value.consommationPour100Km || 0,
       vehicule: this.form.value.vehicule || 'voiture',
