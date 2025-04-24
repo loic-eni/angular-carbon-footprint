@@ -1,0 +1,4 @@
+<button mat-stroked-button [disabled]="loading()">
+  @if(loading()){<mat-spinner diameter="24" />}
+  <ng-content></ng-content>
+</button>

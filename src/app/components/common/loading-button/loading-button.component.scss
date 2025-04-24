@@ -1,0 +1,14 @@
+.mdc-button {
+  width: 100%;
+  ::ng-deep .mdc-button__label {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-spinner {
+      position: absolute;
+      left: 0;
+    }
+  }
+}

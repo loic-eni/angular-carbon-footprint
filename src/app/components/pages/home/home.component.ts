@@ -10,6 +10,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingButtonComponent } from '../../common/loading-button/loading-button.component';
+import { SkeletonComponent } from '../../common/skeleton/skeleton.component';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatInputModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    LoadingButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

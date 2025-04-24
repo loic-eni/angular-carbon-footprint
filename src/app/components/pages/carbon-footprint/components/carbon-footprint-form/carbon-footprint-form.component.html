@@ -35,5 +35,5 @@
     <mat-label>Date</mat-label>
     <input matInput type="date" formControlName="date" />
   </mat-form-field>
-  <button mat-stroked-button type="submit">Ajouter le voyage</button>
+  <app-loading-button [loading]="loading">Ajouter le voyage</app-loading-button>
 </form>

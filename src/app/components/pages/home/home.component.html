@@ -21,14 +21,6 @@
       }
     </mat-form-field>
 
-    <button
-      mat-stroked-button
-      type="submit"
-      [disabled]="loading"
-      class="loading-button"
-    >
-      @if(loading){<mat-spinner diameter="24" />}
-      <span> Me connecter </span>
-    </button>
+    <app-loading-button [loading]="loading">Me connecter</app-loading-button>
   </form>
 </div>

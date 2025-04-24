@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { Voyage } from '../../../../../core/services/carbon-footprint-compute/carbon-footprint-compute.types';
 import { CommonModule } from '@angular/common';
+import { LoadingButtonComponent } from '../../../../common/loading-button/loading-button.component';
 
 @Component({
   selector: 'app-carbon-footprint-form',
@@ -20,15 +21,18 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatSelectModule,
     CommonModule,
+    LoadingButtonComponent,
   ],
   templateUrl: './carbon-footprint-form.component.html',
   styleUrl: './carbon-footprint-form.component.scss',
 })
 export class CarbonFootprintFormComponent {
   computeService: CarbonFootprintComputeService;
+
   constructor(computeService: CarbonFootprintComputeService) {
     this.computeService = computeService;
   }
+
   vehicules: Voyage['vehicule'][] = ['voiture', 'train', 'avion'];
 
   form = new FormGroup({
@@ -37,17 +41,21 @@ export class CarbonFootprintFormComponent {
     consommationPour100Km: new FormControl(0, Validators.min(0)),
     date: new FormControl(new Date()),
   });
+
   submited = false;
+  loading = false;
 
   async submitForm() {
     this.submited = true;
     if (this.form.invalid) return;
     this.submited = false;
 
+    this.loading = true;
     await this.computeService.addVoyage({
       distanceKm: this.form.value.distanceKm || 0,
       consommationPour100Km: this.form.value.consommationPour100Km || 0,
       vehicule: this.form.value.vehicule || 'voiture',
     });
+    this.loading = false;
   }
 }
