@@ -5,6 +5,7 @@
       <li>
         <a
           mat-button
+          [disabled]="!username()"
           routerLink="/profile"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"
@@ -14,6 +15,7 @@
       <li>
         <a
           mat-button
+          [disabled]="!username()"
           routerLink="/carbon-footprint"
           routerLinkActive="active"
           ariaCurrentWhenActive="page"

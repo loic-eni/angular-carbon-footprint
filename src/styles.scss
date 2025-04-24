@@ -24,6 +24,11 @@ app-root {
 
 .page-container {
   padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .gap-16-container {
@@ -37,4 +42,23 @@ app-root {
 
   border: 1px solid black;
   border-radius: 8px;
+}
+
+form {
+  width: 300px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+form.centered {
+  min-width: 50%;
+  padding: 0;
+  padding-bottom: 16px;
+}
+
+.field-error {
+  font-size: small;
+  color: red;
 }
