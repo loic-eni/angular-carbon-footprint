@@ -89,7 +89,12 @@
         @if(voyagesLoading){
         <app-skeleton />
         }@else{
-        {{ voyage.consommationPour100Km }} L }
+        {{
+          voyage.vehicule === "voiture"
+            ? voyage.consommationPour100Km + " L"
+            : "-"
+        }}
+        }
       </td>
     </ng-container>
 
